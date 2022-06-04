@@ -1,4 +1,4 @@
-FROM PYTHON:3.9-alpine3.13
+FROM python:3.9-alpine3.13
 LABEL maintainer="genehiggins"
 
 ENV PYTHONUNBUFFERED 1
@@ -9,7 +9,7 @@ WORKDIR /app
 EXPOSE 8000
 
 RUN python -m venv /py && \
-    /by/bin/pip install --upgrade pip && \
+    /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     rm -rf /tmp && \
     adduser \
