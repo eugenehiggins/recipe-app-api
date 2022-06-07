@@ -1,3 +1,11 @@
-from django.db import models # noqa
+"""
+Database models
+"""
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
+from django.db import models
 
-# Create your models here.
+
+class User(AbstractBaseUser, PermissionsMixin):
+    """User in the system."""
+    email = models.EmailField(max_length=225, unique=True)
