@@ -159,7 +159,7 @@ class PrivateRecipeApiTests(TestCase):
             'link': 'http://example.com/new-recipe.pdf',
         }
         url = detail_url(recipe.id)
-        res = self.client.put(url,payload)
+        res = self.client.put(url, payload)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         recipe.refresh_from_db()
@@ -199,3 +199,4 @@ class PrivateRecipeApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_404_NOT_FOUND)
         self.assertTrue(Recipe.objects.filter(id=recipe.id).exists())
+
